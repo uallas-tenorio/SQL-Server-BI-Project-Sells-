@@ -1,0 +1,2 @@
+# SQL-Server-BI-Project-Sells-
+Project using Microsoft tools to deal with sells, invoices and to allow customized reports 
