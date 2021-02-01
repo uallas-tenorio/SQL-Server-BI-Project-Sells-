@@ -1,5 +1,5 @@
 # SQL-Server-BI-Project-Sells-
-Project using Microsoft tools to deal with sells, invoices and to allow customized reports.
+BI Project using Microsoft tools to deal with sells, invoices and to deliver customized reports.
 
 > Building tables for OLTP
 
