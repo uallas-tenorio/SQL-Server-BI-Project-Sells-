@@ -1,0 +1,723 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/19/2021 3:05:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-I6CTQ57Q"
+  DTS:CreatorName="LAPTOP-I6CTQ57Q\ualla"
+  DTS:DTSID="{4F50C8E0-99AD-4F60-A085-43920C93DFAE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{DF3DD1F0-441B-4926-99E8-06C03725E68D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\STAGE FATO"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{8657DB99-DAE7-45A7-91BD-AFF301273C7E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="STAGE FATO"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\STAGE FATO\Destino OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[ST_FATO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGE FATO\Destino OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{B1050AAC-F049-4D5A-B820-D807E165D37F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-I6CTQ57Q.COMERCIO_STAGE]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IDCLIENTE]"
+                      cachedDataType="i4"
+                      cachedName="IDCLIENTE"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDCLIENTE]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDCLIENTE]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IDVENDEDOR]"
+                      cachedDataType="i4"
+                      cachedName="IDVENDEDOR"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDVENDEDOR]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDVENDEDOR]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IDPRODUTO]"
+                      cachedDataType="i4"
+                      cachedName="IDPRODUTO"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDPRODUTO]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDPRODUTO]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IDFORNECEDOR]"
+                      cachedDataType="i4"
+                      cachedName="IDFORNECEDOR"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDFORNECEDOR]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORNECEDOR]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IDNOTA]"
+                      cachedDataType="i4"
+                      cachedName="IDNOTA"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDNOTA]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IDFORMA]"
+                      cachedDataType="i4"
+                      cachedName="IDFORMA"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDFORMA]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[QUANTIDADE]"
+                      cachedDataType="i4"
+                      cachedName="QUANTIDADE"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[QUANTIDADE]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[QUANTIDADE]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[CUSTO_TOTAL]"
+                      cachedDataType="numeric"
+                      cachedName="CUSTO_TOTAL"
+                      cachedPrecision="21"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[CUSTO_TOTAL]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[CUSTO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[LUCRO_TOTAL]"
+                      cachedDataType="numeric"
+                      cachedName="LUCRO_TOTAL"
+                      cachedPrecision="22"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[LUCRO_TOTAL]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[LUCRO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[TOTAL_ITEM]"
+                      cachedDataType="numeric"
+                      cachedName="TOTAL_ITEM"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[TOTAL_ITEM]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[TOTAL_ITEM]" />
+                    <inputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[DATA]"
+                      cachedDataType="dbDate"
+                      cachedName="DATA"
+                      externalMetadataColumnId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[DATA]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[DATA]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDCLIENTE]"
+                      dataType="i4"
+                      name="IDCLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDVENDEDOR]"
+                      dataType="i4"
+                      name="IDVENDEDOR" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDPRODUTO]"
+                      dataType="i4"
+                      name="IDPRODUTO" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDFORNECEDOR]"
+                      dataType="i4"
+                      name="IDFORNECEDOR" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDNOTA]"
+                      dataType="i4"
+                      name="IDNOTA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDFORMA]"
+                      dataType="i4"
+                      name="IDFORMA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[QUANTIDADE]"
+                      dataType="i4"
+                      name="QUANTIDADE" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[TOTAL_ITEM]"
+                      dataType="numeric"
+                      name="TOTAL_ITEM"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[DATA]"
+                      dataType="dbDate"
+                      name="DATA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[CUSTO_TOTAL]"
+                      dataType="numeric"
+                      name="CUSTO_TOTAL"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[LUCRO_TOTAL]"
+                      dataType="numeric"
+                      name="LUCRO_TOTAL"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STAGE FATO\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STAGE FATO\Origem OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
+              description="Origem OLE DB"
+              name="Origem OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[RELATORIO_VENDAS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Os mapeamentos entre os parâmetros no comando SQL e as variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGE FATO\Origem OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{43045D58-321A-4596-9445-9EB35AF52D0F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-I6CTQ57Q.COMERCIO_OLTP]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB]"
+                  name="Saída de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDCLIENTE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDCLIENTE]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDCLIENTE]"
+                      name="IDCLIENTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDVENDEDOR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDVENDEDOR]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDVENDEDOR]"
+                      name="IDVENDEDOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDPRODUTO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDPRODUTO]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDPRODUTO]"
+                      name="IDPRODUTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORNECEDOR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDFORNECEDOR]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORNECEDOR]"
+                      name="IDFORNECEDOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDNOTA]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]"
+                      name="IDNOTA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDFORMA]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]"
+                      name="IDFORMA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[QUANTIDADE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[QUANTIDADE]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[QUANTIDADE]"
+                      name="QUANTIDADE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[CUSTO_TOTAL]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[CUSTO_TOTAL]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[CUSTO_TOTAL]"
+                      name="CUSTO_TOTAL"
+                      precision="21"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[LUCRO_TOTAL]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[LUCRO_TOTAL]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[LUCRO_TOTAL]"
+                      name="LUCRO_TOTAL"
+                      precision="22"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[TOTAL_ITEM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[TOTAL_ITEM]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[TOTAL_ITEM]"
+                      name="TOTAL_ITEM"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[DATA]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[DATA]"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[DATA]"
+                      name="DATA"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDCLIENTE]"
+                      dataType="i4"
+                      name="IDCLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDVENDEDOR]"
+                      dataType="i4"
+                      name="IDVENDEDOR" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDPRODUTO]"
+                      dataType="i4"
+                      name="IDPRODUTO" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDFORNECEDOR]"
+                      dataType="i4"
+                      name="IDFORNECEDOR" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDNOTA]"
+                      dataType="i4"
+                      name="IDNOTA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDFORMA]"
+                      dataType="i4"
+                      name="IDFORMA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[QUANTIDADE]"
+                      dataType="i4"
+                      name="QUANTIDADE" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[CUSTO_TOTAL]"
+                      dataType="numeric"
+                      name="CUSTO_TOTAL"
+                      precision="21"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[LUCRO_TOTAL]"
+                      dataType="numeric"
+                      name="LUCRO_TOTAL"
+                      precision="22"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[TOTAL_ITEM]"
+                      dataType="numeric"
+                      name="TOTAL_ITEM"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[DATA]"
+                      dataType="dbDate"
+                      name="DATA" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDCLIENTE]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDCLIENTE]"
+                      name="IDCLIENTE" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDVENDEDOR]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDVENDEDOR]"
+                      name="IDVENDEDOR" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDPRODUTO]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDPRODUTO]"
+                      name="IDPRODUTO" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDFORNECEDOR]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDFORNECEDOR]"
+                      name="IDFORNECEDOR" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDNOTA]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDNOTA]"
+                      name="IDNOTA" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDFORMA]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDFORMA]"
+                      name="IDFORMA" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[QUANTIDADE]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[QUANTIDADE]"
+                      name="QUANTIDADE" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[CUSTO_TOTAL]"
+                      dataType="numeric"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[CUSTO_TOTAL]"
+                      name="CUSTO_TOTAL"
+                      precision="21"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[LUCRO_TOTAL]"
+                      dataType="numeric"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[LUCRO_TOTAL]"
+                      name="LUCRO_TOTAL"
+                      precision="22"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[TOTAL_ITEM]"
+                      dataType="numeric"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[TOTAL_ITEM]"
+                      name="TOTAL_ITEM"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[DATA]"
+                      dataType="dbDate"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[DATA]"
+                      name="DATA" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\STAGE FATO.Paths[Saída de Origem OLE DB]"
+              endId="Package\STAGE FATO\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+              name="Saída de Origem OLE DB"
+              startId="Package\STAGE FATO\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE ST_FATO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{D08BA651-8F07-4222-8D14-7B96E1670CE2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE ST_FATO"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B1050AAC-F049-4D5A-B820-D807E165D37F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ST_FATO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição]"
+      DTS:CreationName=""
+      DTS:DTSID="{FBC4C716-3ED8-4EA6-969D-5EF66A818A1F}"
+      DTS:From="Package\TRUNCATE ST_FATO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição"
+      DTS:To="Package\STAGE FATO" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\TRUNCATE ST_FATO"
+          TopLeft="92,36" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\STAGE FATO"
+          TopLeft="92,115" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição]"
+          TopLeft="187.5,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21,37"
+              Start="0,0"
+              End="-21,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-17,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17,18.5"
+                    Point2="-21,18.5"
+                    Point3="-21,22.5" />
+                  <mssgle:LineSegment
+                    End="-21,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\STAGE FATO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\STAGE FATO\Origem OLE DB"
+          TopLeft="75,34" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\STAGE FATO\Destino OLE DB"
+          TopLeft="76,140" />
+        <EdgeLayout
+          Id="Package\STAGE FATO.Paths[Saída de Origem OLE DB]"
+          TopLeft="154.75,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGE FATO\Origem OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGE FATO\Destino OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
