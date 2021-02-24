@@ -2,19 +2,19 @@
 		GO
 		
 		-------------------------------
-		--CARREGANDO A DIMENS√O TEMPO--
+		--CARREGANDO A DIMENS√ÉO TEMPO--
 		-------------------------------
 
 		--EXIBINDO A DATA ATUAL
 
 		PRINT CONVERT(VARCHAR,GETDATE(),113) 
 
-		--ALTERANDO O INCREMENTO PARA INÕCIO EM 5000
+		--ALTERANDO O INCREMENTO PARA IN√çCIO EM 5000
 		--PARA A POSSIBILIDADE DE DATAS ANTERIORES
 
 		DBCC CHECKIDENT (DIM_TEMPO, RESEED, 50000) 
 
-		--INSER«√O DE DADOS NA DIMENS√O
+		--INSER√á√ÉO DE DADOS NA DIMENS√ÉO
 
 		DECLARE    @DATAINICIO DATETIME 
 				 , @DATAFIM DATETIME 
@@ -48,11 +48,11 @@
             
 					WHEN 1 THEN 'Domingo'
 					WHEN 2 THEN 'Segunda' 
-					WHEN 3 THEN 'TerÁa' 
+					WHEN 3 THEN 'Ter√ßa' 
 					WHEN 4 THEN 'Quarta' 
 					WHEN 5 THEN 'Quinta' 
 					WHEN 6 THEN 'Sexta' 
-					WHEN 7 THEN 'S·bado' 
+					WHEN 7 THEN 'S√°bado' 
              
 				END AS DIASEMANA,
 
@@ -62,7 +62,7 @@
 			
 					WHEN 'January' THEN 'Janeiro'
 					WHEN 'February' THEN 'Fevereiro'
-					WHEN 'March' THEN 'MarÁo'
+					WHEN 'March' THEN 'Mar√ßo'
 					WHEN 'April' THEN 'Abril'
 					WHEN 'May' THEN 'Maio'
 					WHEN 'June' THEN 'Junho'
@@ -103,7 +103,7 @@
 		select * from DIM_TEMPO
 
 		----------------------------------------------
-		----------FINS DE SEMANA E ESTA«’ES-----------
+		----------FINS DE SEMANA E ESTA√á√ïES-----------
 		----------------------------------------------
 
 		DECLARE C_TEMPO CURSOR FOR	
@@ -122,10 +122,10 @@
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
 			
-					 IF @DIASEMANA in ('Domingo','S·bado') 
+					 IF @DIASEMANA in ('Domingo','S√°bado') 
 						SET @FIMSEMANA = 'Sim'
 					 ELSE 
-						SET @FIMSEMANA = 'N„o'
+						SET @FIMSEMANA = 'N√£o'
 
 					--ATUALIZANDO ESTACOES
 
@@ -142,7 +142,7 @@
 						SET @ESTACAO = 'Inverno'
 
 					ELSE -- @data between 21/12 e 20/03
-						SET @ESTACAO = 'Ver„o'
+						SET @ESTACAO = 'Ver√£o'
 
 					--ATUALIZANDO FINS DE SEMANA
 	
